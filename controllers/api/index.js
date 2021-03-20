@@ -1,9 +1,7 @@
 const router = require('express').Router();
 
-const scheduleRoutes = require('./schedule-routes.js');
-const weatherRoutes = require('./weather-routes');
+const userRoutes = require('./user-routes.js');
 
-router.use('/schedule', scheduleRoutes);
-router.use('/weather', weatherRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;

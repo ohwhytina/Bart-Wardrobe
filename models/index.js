@@ -1,7 +1,9 @@
 // import all models
-const Post = require('./User');
+const Preference = require('./User');
 const User = require('./Preference');
 
+// create associations
 
 
-module.exports = { User, Preferences };
+
+module.exports = { User, Preference };
