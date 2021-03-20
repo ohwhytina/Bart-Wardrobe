@@ -1,0 +1,5 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS bart_wardrobe_db;
+
+-- CREATE DATABASE
+CREATE DATABASE bart_wardrobe_db;
