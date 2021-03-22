@@ -16,6 +16,10 @@ Preference.init(
         primaryKey: true,
         autoIncrement: true
       },
+      station_name: {
+        type: DataTypes.TEXT,
+        allowNull: false
+      },
       user_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -41,7 +45,7 @@ Preference.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user'
+        modelName: 'preference'
     }
     );
 
