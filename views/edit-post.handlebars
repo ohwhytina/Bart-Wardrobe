@@ -1,18 +1,18 @@
 {{> secondary-header post.secondary-header}}
 
- <form class="uk-position-center-left uk-card uk-card-default uk-width-expand uk-card-body uk-align-center">
-        <fieldset class="uk-fieldset">
-            <legend class="uk-legend uk-text-center">Post your questions/concern!</legend>
+<form class="uk-position-center-left uk-card uk-card-default uk-width-expand uk-card-body uk-align-center">
+    <fieldset class="uk-fieldset">
+        <legend class="uk-legend uk-text-center">Edit Post</legend>
             <div class="uk-margin">
-                <input class="uk-input" type="text" placeholder="Title">
+                <textarea class="uk-input" type="text" value="{{post.title}}">{{post.title}}</textarea>
             </div>
             <div class="uk-margin">
-                <textarea class="uk-textarea" rows="8" placeholder="Description"></textarea>
+                <textarea class="uk-textarea" rows="8">{{post.content}}</textarea>
             </div>
-    
-            <button class="uk-button uk-button-default uk-button-secondary">POST!</button>  
+            <button class="uk-button uk-button-default uk-align-right uk-button-secondary"><a href="/dashboard">POST!</a></button>  
+            <button class="uk-button uk-button-default uk-button-secondary"><a href="/dashboard">DELETE!</a></button> 
         </fieldset>
-    </form>
+</form>
 
 
 <script src="/javascript/edit-post.js"></script>

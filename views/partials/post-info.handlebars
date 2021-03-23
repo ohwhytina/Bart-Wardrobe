@@ -1,11 +1,15 @@
-<section class ="post">
-    <div class="card row row-cols-1 row-cols-md-1 d-flex">
-        <div class="card-header">
-           <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
-            <p>Posted by {{user.username}} on {{created_at}}</p>
+<main class="uk-card uk-card-default uk-card-body uk-width-expand">
+  <article class="uk-comment uk-comment-primary">
+    <header class="uk-comment-header">
+      <div class="uk-grid-medium uk-flex-middle" uk-grid>
+        <div class="uk-width-expand">
+          <h4 class="uk-comment-title uk-margin-remove">{{user.username}}</h4>
+            <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+              <li>{{format_date created_at}}</li>
+            </ul>
         </div>
-            <!-- <div class="box"> -->
-            <p class="card-body border border-dark">{{content}}</p>
-            <!-- </div> -->
-    </div>
-</section>
+        <section class="uk-comment-body">{{content}}</section>
+      </div> 
+    </header>   
+  </article>
+</main>

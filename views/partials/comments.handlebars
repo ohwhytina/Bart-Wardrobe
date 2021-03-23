@@ -1,0 +1,17 @@
+<section class ="comments">
+  {{#each this}}
+    <article class="uk-comment uk-comment-primary uk-visible-toggle" tabindex="-1">
+      <header class="uk-comment-header uk-position-relative">
+        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+          <div class="uk-width-expand">
+            <h4 class="uk-comment-title uk-margin-remove">{{user.username}}</h4>
+              <p class="uk-comment-meta uk-margin-remove-top">{{format_date created_at}}</p>
+          </div>
+        </div>
+      </header>
+      <div class="uk-comment-body">
+        <p>{{comment_text}}</p>
+      </div>
+    </article>
+  {{/each}}
+</section>

@@ -1,0 +1,21 @@
+{{> secondary-header post.secondary-header}}
+
+{{#if posts.length}}
+<section>
+    {{#each posts as |post|}}
+      {{> user-posts post}}
+    {{/each}}
+
+</section>
+{{/if}}
+
+<!-- start of footer section -->
+
+<footer>
+    <section class="footer">
+          <button class="uk-button uk-button-secondary uk-button-large"><a href="/dashboard/new">New Post</a></button>
+    </section>
+</footer>
+
+</body>
+<script src="/javascript/add-post.js"></script>

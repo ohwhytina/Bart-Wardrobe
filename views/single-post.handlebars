@@ -1,3 +1,38 @@
-<div>
-    {{> post-info post}}
-</div>
+
+{{> main-header post.main-header}}
+
+<!-- start of main section -->
+<main>
+{{> post-info post}}
+
+{{#if loggedIn}}
+<main class="uk-card uk-card-default uk-card-body uk-width-expand">
+    <article class="uk-comment uk-comment-primary">
+        <header class="uk-comment-header">
+            <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                <div class="uk-width-expand">
+                </div>
+            </div>
+        </header>
+            <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+         <li><a href="#">Reply</a></li>
+         </ul>
+    
+    <div class="uk-margin">
+        <textarea class="uk-textarea" rows="8"></textarea>
+    </div>
+    <button class="uk-button uk-button-default uk-align-right uk-button-secondary">Submit!</button> 
+    </article>
+</main>
+
+{{/if}}
+
+{{> comments post.comments}}
+    </section>
+</main>
+    
+<!-- end of main section -->
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
