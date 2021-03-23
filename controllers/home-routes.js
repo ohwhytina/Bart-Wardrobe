@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 const { User, Post, Reply } = require('../models');
 const axios = require('axios')
 var APIkey = "d32377506e56284db17e72a06db9c9d8";
-// bartApiKey = "MW9S-E7SL-26DU-VV8V"
 
 // const weather = require('././utils/helpers');
 
@@ -34,24 +33,35 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+          const posts = dbPostData.map(post => post.get({ plain: true }));
 
-      // fetch bart api
-      var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
-      axios(apiBartStationUrl)
-      .then (root=> {
-        // var apiWeather = "https://api.openweathermap.org/data/2.5/weather?zip=" + 94123 + "us&appid=" + APIkey + "&units=imperial";
-        // axios(apiWeather)
-        //   .then (weather => {
-            console.log(root.stations.station)
-            // console.log(weather);
+          
+          var apiBartStationUrl = "http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y";
+          axios(apiBartStationUrl)
+      .then (bart => {
+        
+        var array = [];
+        array = new Array();
+          for (i = 0; i < array.length; i++) {
+            array[i] = i;
+          }
+
+
+        var apiWeather = "https://api.openweathermap.org/data/2.5/weather?zip=" + bart.data.root.stations.station[i].zipcode + ",us&appid=" + APIkey + "&units=imperial";
+        axios(apiWeather)
+
+          .then (weth => {
+            console.log(bart.data.root.stations.station[i].name)
+            console.log(weth.data.main.temp);
+
             res.render('homepage', {
               posts,
-              loggedIn: req.session.loggedIn, 
-              // bartname: data.root.stations.station.zipcode         
+              loggedIn: req.session.loggedIn,
+              bartname: bart.data.root.stations.station[i].name,
+              weathername: weth.data.main.temp
             });
           })
-        // });
+        });
       }) 
     .catch(err => {
       console.log(err);
